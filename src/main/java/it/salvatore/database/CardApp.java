@@ -28,28 +28,20 @@ public class CardApp {
 
         Card card = new Card();
 
-
-
          //QUERY FOR ALL
-          /*  List<Card> list = cardDao.queryForAll();
-        for (int i = 0; i < list.size(); i++) {
-            card = list.get(i);
-            System.out.println("Id " + card.getId());
-            System.out.println("CardNo " + card.getCardno());
-        }*/
+        List<Card> listCard = cardDao.queryForAll();
+        for (Card c : listCard) {
+            System.out.println("Id " + c.getId());
+            System.out.println("CardNo " + c.getCardno());
+
+        }
 
          //QUERY FOR EQ
-
-
-        List<Card> list = cardDao.queryForEq("cardno","673728319312");
-
-
-        card = list.get(0);
-        System.out.println("id "+card.getId());
-        System.out.println("cardno "+card.getCardno());
-
-
-
+        listCard = cardDao.queryForEq("cardno","673728319312");
+        for (Card c : listCard) {
+            System.out.println("Id " + c.getId());
+            System.out.println("CardNo " + c.getCardno());
+        }
 
         // close the connection source
         connectionSource.close();
