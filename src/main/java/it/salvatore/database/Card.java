@@ -3,13 +3,20 @@ package it.salvatore.database;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "cards")
+import java.util.Date;
+
+@DatabaseTable(tableName = "card")
     public class Card{
 
         @DatabaseField(id = true)
         private int id;
         @DatabaseField
         private String cardno;
+        @DatabaseField
+        private int cliente_id;
+        @DatabaseField
+        private Date data_scadenza;
+
 
         public Card() {
             // ORMLite needs a no-arg constructor
@@ -28,8 +35,23 @@ import com.j256.ormlite.table.DatabaseTable;
             return cardno;
         }
         public void setCardno(String cardno) {
-            this.cardno = cardno;
-        }
+        this.cardno = cardno;
     }
+
+        public void setCliente_id(int cliente_id) {
+        this.cliente_id = cliente_id;
+    }
+        public int getCliente_id() {
+        return cliente_id;
+    }
+
+        public void setData_scadenza(Date data_scadenza) {
+        this.data_scadenza = data_scadenza;
+    }
+
+        public Date getData_scadenza() {
+        return data_scadenza;
+    }
+}
 
 
